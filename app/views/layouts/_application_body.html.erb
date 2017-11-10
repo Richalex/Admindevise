@@ -1,0 +1,52 @@
+<body class="hold-transition skin-red sidebar-mini">
+<div class="wrapper">
+  <%= render "layouts/application_header" %>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <%= render "layouts/application_userbar" %>
+      <!-- search form -->
+      <%= render "layouts/application_search" %>
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <%= render "layouts/application_barmenu" %>
+    </section>
+
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small>Version 2.0</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %> alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <%= value %>
+          </div>
+      <% end %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+
+
+
+      <%= yield %>
+    </section>
+  </div>
+  <%= render "layouts/application_footer" %>
+
+  <%= render "layouts/application_controlbar" %>
+
+  <script async="" src="//www.google-analytics.com/analytics.js"></script>
+</div>
+</body>
